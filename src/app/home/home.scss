@@ -1,0 +1,12 @@
+/*styles for home content only*/
+
+:host {
+  display: block;
+}
+
+.welcome {
+  width: 128px;
+  height: 128px;
+  background: url(../%common/images/avatar.png) no-repeat center;
+  background-size: cover;
+}

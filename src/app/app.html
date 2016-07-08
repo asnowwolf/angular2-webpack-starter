@@ -1,0 +1,30 @@
+<header>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['./']">Index</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['./home']">
+        Home
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['./detail']">
+        Detail
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['./about']">
+        About
+      </a>
+    </li>
+  </ul>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
+</footer>

@@ -50,7 +50,7 @@ module.exports = webpackMerge(commonConfig, {
    * See: http://webpack.github.io/docs/configuration.html#devtool
    * See: https://github.com/webpack/docs/wiki/build-performance#sourcemaps
    */
-  devtool: 'cheap-module-source-map',
+  devtool: 'inline-cheap-module-source-map',
 
   /**
    * Options affecting the output of the compilation.
@@ -72,7 +72,7 @@ module.exports = webpackMerge(commonConfig, {
      *
      * See: http://webpack.github.io/docs/configuration.html#output-filename
      */
-    filename: '[name].bundle.js',
+    filename: 'js/[name].bundle.js',
 
     /**
      * The filename of the SourceMaps for the JavaScript files.
@@ -80,14 +80,15 @@ module.exports = webpackMerge(commonConfig, {
      *
      * See: http://webpack.github.io/docs/configuration.html#output-sourcemapfilename
      */
-    sourceMapFilename: '[name].map',
+    sourceMapFilename: 'js/[name].bundle.map',
+    devtoolModuleFilenameTemplate: '../[resource-path]',
 
     /** The filename of non-entry chunks as relative path
      * inside the output.path directory.
      *
      * See: http://webpack.github.io/docs/configuration.html#output-chunkfilename
      */
-    chunkFilename: '[id].chunk.js',
+    chunkFilename: 'js/[name].chunk-[id].js',
 
     library: 'ac_[name]',
     libraryTarget: 'var',

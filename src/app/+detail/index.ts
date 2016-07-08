@@ -1,5 +1,5 @@
-export { Detail } from './detail.component';
-export { Index } from './index.component';
+export { Detail } from './detail';
+export { Home } from './home';
 
 console.log('`Detail` bundle loaded asynchronously');
 // Must be exported for WebpackAsyncRoute

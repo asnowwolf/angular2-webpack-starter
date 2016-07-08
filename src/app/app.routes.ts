@@ -17,7 +17,7 @@ export const routes: RouterConfig = [
   { path: 'detail', component: 'Detail',
     canActivate: [ WebpackAsyncRoute ],
     children: [
-      { path: '', component: 'Index' }  // must be included
+      { path: '', component: 'Home' }  // must be included
     ]},
   { path: '**',    component: NoContent },
 ];
@@ -30,7 +30,7 @@ export const asyncRoutes: AsyncRoutes = {
   // we have to use the alternative syntax for es6-promise-loader to grab the routes
   'About': require('es6-promise-loader!./about'),
   'Detail': require('es6-promise-loader!./+detail'),
-  'Index': require('es6-promise-loader!./+detail'), // must be exported with detail/index.ts
+  'Home': require('es6-promise-loader!./+detail'), // must be exported with detail/index.ts
 };
 
 

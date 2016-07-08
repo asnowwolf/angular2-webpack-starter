@@ -9,6 +9,7 @@ const helpers = require('./helpers');
  * Webpack Plugins
  */
 // problem with copy-webpack-plugin
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
@@ -44,7 +45,7 @@ module.exports = {
    *
    * See: http://webpack.github.io/docs/configuration.html#cache
    */
-   //cache: false,
+  //cache: false,
 
   /*
    * The entry point for the bundle
@@ -55,8 +56,8 @@ module.exports = {
   entry: {
 
     'polyfills': './src/polyfills.browser.ts',
-    'vendor':    './src/vendor.browser.ts',
-    'main':      './src/main.browser.ts'
+    'vendor': './src/vendor.browser.ts',
+    'main': './src/main.browser.ts'
 
   },
 
@@ -72,7 +73,7 @@ module.exports = {
      *
      * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
      */
-    extensions: ['', '.ts', '.js', '.json'],
+    extensions: ['', '.ts', '.js'],
 
     // Make sure root is src
     root: helpers.root('src'),
@@ -101,7 +102,7 @@ module.exports = {
        *
        * See: https://github.com/wbuchwalter/tslint-loader
        */
-       // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
+      // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
 
       /*
        * Source map loader support for *.js files
@@ -111,7 +112,7 @@ module.exports = {
        */
       {
         test: /\.js$/,
-        loader: 'source-map-loader',
+        loader: 'source-map',
         exclude: [
           // these packages have problems with their sourcemaps
           helpers.root('node_modules/rxjs'),
@@ -132,53 +133,94 @@ module.exports = {
      * See: http://webpack.github.io/docs/configuration.html#module-loaders
      */
     loaders: [
-
-      /*
-       * Typescript loader support for .ts and Angular 2 async routes via .async.ts
-       *
-       * See: https://github.com/s-panferov/awesome-typescript-loader
-       */
       {
         test: /\.ts$/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+        loaders: ['awesome-typescript'],
         exclude: [/\.(spec|e2e)\.ts$/]
       },
-
-      /*
-       * Json loader support for *.json files.
-       *
-       * See: https://github.com/webpack/json-loader
-       */
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: 'json'
       },
-
-      /*
-       * to string and css loader support for *.css files
-       * Returns file content as string
-       *
-       */
+      {
+        test: /\.hson$/,
+        loader: 'hson'
+      },
+      {
+        test: /\.yml$/,
+        loader: 'json!yaml'
+      },
+      {
+        test: /\.(csv|tsv)$/,
+        loader: 'dsv'
+      },
+      {
+        test: /\.xml$/,
+        loader: 'xml'
+      },
       {
         test: /\.css$/,
-        loaders: ['to-string-loader', 'css-loader']
+        include: [helpers.root('src/app/app.css')],
+        loader: ExtractTextPlugin.extract('css?sourceMap&minimize')
       },
-
-      /* Raw loader support for *.html
-       * Returns file content as string
-       *
-       * See: https://github.com/webpack/raw-loader
-       */
+      {
+        test: /\.css$/,
+        exclude: [helpers.root('src/app/app.css')],
+        loader: 'css-to-string!css?sourceMap&minimize'
+      },
+      {
+        test: /\.scss$/,
+        include: [helpers.root('src/app/app.scss')],
+        loader: ExtractTextPlugin.extract('css?sourceMap&minimize!sass?sourceMap')
+      },
+      {
+        test: /\.scss$/,
+        exclude: [helpers.root('src/app/app.scss')],
+        loader: 'css-to-string!css?sourceMap&minimize!sass?sourceMap'
+      },
       {
         test: /\.html$/,
-        loader: 'raw-loader',
+        loader: 'html',
         exclude: [helpers.root('src/index.html')]
+      },
+      {
+        test: /\.md$/,
+        loader: 'html!markdown'
+      },
+      {
+        test: /\.jade$/,
+        loader: 'html!jade-html'
+      },
+      // assets
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        exclude: /node_modules/,
+        loader: "url?limit=8092&name=images/[name]_[hash].[ext]"
+      },
+      {
+        // required for bootstrap icons
+        test: /\.(woff|woff2)(\?(.*))?$/,
+        loader: 'url?prefix=factorynts/&limit=5000&mimetype=application/font-woff'
+      },
+      {
+        test: /\.ttf(\?(.*))?$/,
+        loader: 'file?prefix=fonts/'
+      },
+      {
+        test: /\.svg(\?(.*))?$/,
+        include: /node_modules/,
+        loader: 'file?prefix=fonts/'
+      },
+      {
+        test: /\.eot(\?(.*))?$/,
+        loader: 'file?prefix=fonts/'
       }
-
     ]
 
   },
-
+  htmlLoader: {
+    ignoreCustomFragments: [/(\{\{.*?}})|(\[.*?\])|(\(.*?\))|(\[\(.*?\)\])/]
+  },
   /*
    * Add additional plugins to the compiler.
    *
@@ -186,6 +228,7 @@ module.exports = {
    */
   plugins: [
 
+    new ExtractTextPlugin('css/[name]_[hash].css', {allChunks: true}),
     /*
      * Plugin: ForkCheckerPlugin
      * Description: Do type checking in a separate process, so webpack don't need to wait.

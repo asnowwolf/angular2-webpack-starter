@@ -1,0 +1,11 @@
+# About
+
+For hot module reloading run
+
+`npm run start:hmr`
+
+## patrick@AngularClass.com
+
+![Logo](../%common/images/avatar.png)
+
+`this.localState = {{ localState | json }}`

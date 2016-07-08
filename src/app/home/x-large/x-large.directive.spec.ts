@@ -1,6 +1,5 @@
 import {
   async,
-  beforeEachProviders,
   describe,
   inject,
   it
