@@ -110,7 +110,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "1.7.0",
     "markdown-loader": "^0.1.7",
-    "markup-inline-loader": "0.0.6",
+    "markup-inline-loader": "0.0.9",
     "node-sass": "^3.8.0",
     "parse5": "^2.1.5",
     "protractor": "^3.3.0",
