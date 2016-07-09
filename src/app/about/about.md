@@ -6,6 +6,6 @@ For hot module reloading run
 
 ## patrick@AngularClass.com
 
-![Logo](../%common/images/avatar.png)
+![Logo](../%common/images/angular.svg)
 
 `this.localState = {{ localState | json }}`

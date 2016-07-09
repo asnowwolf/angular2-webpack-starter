@@ -76,10 +76,13 @@ module.exports = {
     extensions: ['', '.ts', '.js'],
 
     // Make sure root is src
-    root: helpers.root('src'),
+    root: [
+      helpers.root('src'),
+      helpers.root('node_modules')
+    ],
 
     // remove other default values
-    modulesDirectories: ['node_modules'],
+    modulesDirectories: [],
 
   },
 
@@ -180,20 +183,19 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'html',
+        loader: 'html!markup-inline',
         exclude: [helpers.root('src/index.html')]
       },
       {
         test: /\.md$/,
-        loader: 'html!markdown'
+        loader: 'html!markup-inline!markdown'
       },
       {
         test: /\.jade$/,
-        loader: 'html!jade-html'
+        loader: 'html!markup-inline!jade-html'
       },
-      // assets
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif)$/,
         exclude: /node_modules/,
         loader: "url?limit=8092&name=images/[name]_[hash].[ext]"
       },
@@ -205,6 +207,11 @@ module.exports = {
       {
         test: /\.ttf(\?(.*))?$/,
         loader: 'file?prefix=fonts/'
+      },
+      {
+        test: /\.svg$/,
+        exclude: /node_modules/,
+        loader: 'file'
       },
       {
         test: /\.svg(\?(.*))?$/,

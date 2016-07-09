@@ -2,6 +2,20 @@
   display: block;
 }
 
-img {
-  width: 256px;
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-180deg);
+  }
+}
+
+svg {
+  width: 100px;
+}
+
+.text {
+  animation: 3s infinite rotate;
+  transform-origin: center;
 }

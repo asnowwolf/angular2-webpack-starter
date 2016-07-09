@@ -2,6 +2,7 @@
 
 :host {
   display: block;
+  color: gray;
 }
 
 .welcome {
@@ -9,4 +10,9 @@
   height: 128px;
   background: url(../%common/images/avatar.png) no-repeat center;
   background-size: cover;
+}
+
+.icon {
+  position: relative;
+  bottom: -0.1em;
 }
