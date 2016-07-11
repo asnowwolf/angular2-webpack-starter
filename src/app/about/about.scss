@@ -19,3 +19,16 @@ svg {
   animation: 3s infinite rotate;
   transform-origin: center;
 }
+
+svg[alt=Icon] {
+  width: auto;
+  height: 1em;
+  position: relative;
+  bottom: -0.1em;
+  fill: currentcolor;
+}
+
+h2 {
+  color: gray;
+  font-size: 20px;
+}

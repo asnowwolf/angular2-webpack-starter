@@ -1,4 +1,10 @@
 # About
+ 
+# H1 black ![Icon](../_common/images/icons/camera.svg)
+
+## H2 gray ![Icon](../_common/images/icons/camera.svg)
+
+![Logo](../_common/images/angular.svg)
 
 For hot module reloading run
 
@@ -8,9 +14,6 @@ y^2^
 
 `npm run start:hmr`
 
-## patrick@AngularClass.com
-
-![Logo](../_common/images/angular.svg)
 
 `this.localState = {{ localState | json }}`
 
