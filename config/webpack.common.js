@@ -192,7 +192,7 @@ module.exports = {
       },
       {
         test: /\.md$/,
-        loader: 'html!markup-inline!markdown'
+        loader: 'html!markup-inline!markdown-it'
       },
       {
         test: /\.jade$/,
@@ -231,6 +231,20 @@ module.exports = {
   },
   htmlLoader: {
     ignoreCustomFragments: [/(\{\{.*?}})|(\[.*?\])|(\(.*?\))|(\[\(.*?\)\])/]
+  },
+  'markdown-it': {
+    preset: 'default',
+    typographer: true,
+    use: [
+      require('markdown-it-sub'),
+      require('markdown-it-sup'),
+      require('markdown-it-abbr'),
+      require('markdown-it-deflist'),
+      require('markdown-it-emoji'),
+      require('markdown-it-footnote'),
+      require('markdown-it-ins'),
+      require('markdown-it-mark'),
+    ]
   },
   /*
    * Add additional plugins to the compiler.
