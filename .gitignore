@@ -47,6 +47,7 @@ npm-debug.log
 /dist
 /public/__build__/
 /src/*/__build__/
+
 /__build__/**
 /public/dist/
 /src/*/dist/
@@ -59,3 +60,8 @@ npm-debug.log
 # IDE #
 .idea/
 *.swp
+
+# ignore object files of TypeScript compiler #
+/src/*.js
+/src/*.js.map
+

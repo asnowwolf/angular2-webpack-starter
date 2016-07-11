@@ -3,11 +3,6 @@ import {BaseRequestOptions, Http} from "@angular/http";
 import {MockBackend} from "@angular/http/testing";
 import {Home} from "./home";
 import {Title} from "./title";
-  it
-} from '@angular/core/testing';
-import { Component } from '@angular/core';
-import { BaseRequestOptions, Http } from '@angular/http';
-import { MockBackend } from '@angular/http/testing';
 
 // Load the implementations that should be tested
 

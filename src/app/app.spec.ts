@@ -1,7 +1,5 @@
 import {addProviders, inject, it} from "@angular/core/testing";
 import {App} from "./app";
-  it
-} from '@angular/core/testing';
 
 // Load the implementations that should be tested
 

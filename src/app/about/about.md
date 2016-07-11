@@ -17,9 +17,9 @@ y^2^
 
 `this.localState = {{ localState | json }}`
 
-This is [^me]
+This is me [^1]
 
-[^me]: I'm asnowwolf!
+[^1]: I'm asnowwolf!
 
 Term 1
 :  This is Term1
