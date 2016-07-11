@@ -162,6 +162,10 @@ module.exports = {
         loader: 'xml'
       },
       {
+        test: /\.txt$/,
+        loader: 'raw'
+      },
+      {
         test: /\.css$/,
         include: [helpers.root('src/app/app.css')],
         loader: ExtractTextPlugin.extract('css?sourceMap&minimize')
