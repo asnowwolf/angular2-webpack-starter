@@ -43,7 +43,7 @@ This seed repo serves as an Angular 2 starter for anyone looking to get up and r
 ```bash
 # clone our repo
 # --depth 1 removes all but one .git commit history
-git clone --depth 1 https://github.com/angularclass/angular2-webpack-starter.git
+git clone --depth 1 https://github.com/asnowwolf/angular2-webpack-starter-loader-enhanced.git
 
 # change directory to our repo
 cd angular2-webpack-starter
