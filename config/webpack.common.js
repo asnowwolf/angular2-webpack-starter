@@ -168,22 +168,22 @@ module.exports = {
       {
         test: /\.css$/,
         include: [helpers.root('src/app/app.css')],
-        loader: ExtractTextPlugin.extract('css?sourceMap&minimize')
+        loader: ExtractTextPlugin.extract('css?sourceMap')
       },
       {
         test: /\.css$/,
         exclude: [helpers.root('src/app/app.css')],
-        loader: 'css-to-string!css?sourceMap&minimize'
+        loader: 'css-to-string!css?sourceMap'
       },
       {
         test: /\.scss$/,
         include: [helpers.root('src/app/app.scss')],
-        loader: ExtractTextPlugin.extract('css?sourceMap&minimize!sass?sourceMap')
+        loader: ExtractTextPlugin.extract('css?sourceMap!sass?sourceMap')
       },
       {
         test: /\.scss$/,
         exclude: [helpers.root('src/app/app.scss')],
-        loader: 'css-to-string!css?sourceMap&minimize!sass?sourceMap'
+        loader: 'css-to-string!css?sourceMap!sass?sourceMap'
       },
       {
         test: /\.html$/,
