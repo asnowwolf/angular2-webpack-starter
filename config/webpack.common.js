@@ -151,7 +151,7 @@ module.exports = {
       },
       {
         test: /\.yml$/,
-        loader: 'json!yaml'
+        loader: 'yaml'
       },
       {
         test: /\.(csv|tsv)$/,

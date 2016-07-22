@@ -39,19 +39,19 @@ export class About {
   }
 
   testLoaders() {
-    var csv = require('./_data/test.csv');
+    let csv = require('./_data/test.csv');
     console.log('csv', csv);
 
-    var hson = require('./_data/test.hson');
+    let hson = require('./_data/test.hson');
     console.log('hson', hson);
 
-    var json = require('./_data/test.json');
+    let json = require('./_data/test.json');
     console.log('json', json);
 
-    var xml = require('./_data/test.xml');
+    let xml = require('./_data/test.xml');
     console.log('xml', xml);
 
-    var yml = require('./_data/test.yml');
+    let yml = require('./_data/test.yml');
     console.log('yml', yml);
 
   }
